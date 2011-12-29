@@ -9,6 +9,7 @@ Documentation
 ---
 
 [User Guide][User Guide]
+
 [Plugin Portal][Plugin Portal]
 [User Guide]: http://bobbywarner.github.com/grails-stripe
 [Plugin Portal]: http://grails.org/plugin/stripe
