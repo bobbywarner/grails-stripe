@@ -8,7 +8,10 @@ Grails Stripe is a plugin built to use [Stripe][Stripe] for credit-card processi
 Documentation
 ---
 
-http://grails.org/plugin/stripe
+[User Guide][User Guide]
+[Plugin Portal][Plugin Portal]
+[User Guide]: http://bobbywarner.github.com/grails-stripe
+[Plugin Portal]: http://grails.org/plugin/stripe
 
 License
 ---
