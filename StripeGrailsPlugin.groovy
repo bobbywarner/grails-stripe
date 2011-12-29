@@ -1,3 +1,5 @@
+import com.stripe.Stripe
+
 class StripeGrailsPlugin {
     def version = "1.0.M4"
     def grailsVersion = "1.3.7 > *"
@@ -11,4 +13,8 @@ class StripeGrailsPlugin {
     def license = "APACHE"
     def issueManagement = [ system: "GitHub", url: "https://github.com/bobbywarner/grails-stripe/issues" ]
     def scm = [ url: "https://github.com/bobbywarner/grails-stripe" ]
+    
+    def doWithSpring = {
+        Stripe.apiKey = application.config.grails.plugins.stripe.secretKey
+    }
 }
