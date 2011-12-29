@@ -14,7 +14,8 @@ eclipse
 stacktrace.log
 target
 /plugins
-/web-app
+/web-app/META-INF
+/web-app/WEB-INF
 .idea
 out
 *.iml
