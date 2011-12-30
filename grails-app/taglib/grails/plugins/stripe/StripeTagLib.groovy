@@ -34,7 +34,7 @@ class StripeTagLib {
     /**
      * Creates the form to input credit card details.
      *
-     * @attr class REQUIRED the field class
+     * @attr cssClass REQUIRED the field cssClass
      */
     def creditCardInputs = { attrs, body ->
         out << render(template: "/stripe/creditCardInputs", model: [cssClass: attrs.cssClass], plugin: 'stripe')
