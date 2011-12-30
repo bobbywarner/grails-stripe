@@ -1,3 +1,5 @@
+<r:require module="stripe"/>
+
 <r:script disposition='head'>
     Stripe.setPublishableKey("${publishableKey}");
     
