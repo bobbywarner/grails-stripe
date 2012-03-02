@@ -1,1 +1,9 @@
-TODO
+You will need to set two configuration items in Config.groovy before using the plugin. Before you can add these though, you need to register for an account. So, head on over to the [Stripe registration form|https://manage.stripe.com/register] and create your account. Once you're logged in, click on the top-right link for *Your Account* and then *Account Settings*. This will pop open a box where you can find your *API Keys*. Stripe provides each account with separate publishable and secret keys for testing and live. 
+
+{table}
+*Property* | *Meaning*
+grails.plugins.stripe.secretKey | Your secret key from Stripe
+grails.plugins.stripe.publishableKey | Your publishable key from Stripe 
+{table}
+
+You will want to put these config values in the appropriate environment in Config.groovy.

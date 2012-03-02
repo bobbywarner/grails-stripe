@@ -1,0 +1,11 @@
+To use Stripe in a GSP, you will use the TagLib provided by the plugin. The TagLib will take care of processing the credit card details. You can also optionally have it completely generate the credit card form fields too.
+
+This is all that's required to use the plugin. The *formName* attribute needs to match the name attribute on your <g:form> tag.
+{code}
+<stripe:script formName="payment-form"/> 
+{code}
+
+If you want the plugin to create the credit card fields (number, cvc, exp-month & exp-year), you can use this additional tag. The *cssClass* attribute is what class you want the plugin to put for the div tag surrounding each credit card field. You don't have to use this though and can include these fields manually in your form if you'd prefer.
+{code}
+<stripe:creditCardInputs cssClass="form-row"/>
+{code}

@@ -1,1 +1,7 @@
-Stripe makes it easy to start accepting credit cards on the web. This plugin provides easy integration of Stripe into Grails applications.
+[Stripe|https://stripe.com] makes it easy to start accepting credit cards in a web application. This plugin provides easy integration of [Stripe|https://stripe.com/] into [Grails|http://grails.org] applications.
+
+This guide documents the configuration needed to setup the plugin and provides sample code on how to use it.
+
+h4. Release History
+* March 2, 2012
+** 1.0 release
