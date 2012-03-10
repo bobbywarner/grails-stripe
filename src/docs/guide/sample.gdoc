@@ -5,7 +5,48 @@ This is all that's required to use the plugin. The *formName* attribute needs to
 <stripe:script formName="payment-form"/> 
 {code}
 
-If you want the plugin to create the credit card fields (number, cvc, exp-month & exp-year), you can use this additional tag. The *cssClass* attribute is what class you want the plugin to put for the div tag surrounding each credit card field. You don't have to use this though and can include these fields manually in your form if you'd prefer.
+If you want the plugin to create the credit card fields (number, cvc, exp-month & exp-year), you can use this additional tag. The required *cssClass* attribute is what class you want the plugin to put for the div tag surrounding each credit card field. You don't have to use this tag though and can include these fields manually in your form if you'd prefer. If you do create your own credit card fields, make sure you don't have a *name* attribute on the *input* elements so that they never get submitted to the server. Take a look at the [Stripe form documentation|https://stripe.com/docs/tutorials/forms] for more information: 
 {code}
 <stripe:creditCardInputs cssClass="form-row"/>
 {code}
+
+Once your credit card form is setup, the next step is to create a Grails controller to handle the form submission. The only two params you need to capture are *stripeToken* and *amount* if you use the credit card inputs tag. Here is an example from the [Grails Stripe Sample application|https://github.com/bobbywarner/stripesample]:
+{code}
+package stripesample
+
+import com.stripe.model.Charge
+import com.stripe.exception.CardException;
+
+class CheckoutController {
+    
+    def index() {}
+    
+    def charge(String stripeToken, Double amount) {
+        def amountInCents = (amount * 100) as Integer
+        
+        def chargeParams = [
+            'amount': amountInCents, 
+            'currency': 'usd', 
+            'card': stripeToken, 
+            'description': 'customer@sample.org'
+        ]
+        
+        def status
+        try {
+            Charge.create(chargeParams)
+            status = 'Your purchase was successful.'
+        } catch(CardException) {
+            status = 'There was an error processing your credit card.'
+        }
+            
+        redirect(action: "confirmation", params: [msg: status])
+        return
+    }
+    
+    def confirmation(String msg) {
+        [msg: msg]
+    }
+}
+{code}
+
+As you can see, the *charge* action reads in the *tripeToken* and *amount*, converts the *amount* to *amountInCents* which is the format Stripe expects it in and then creates a *chargeParams* map to use with the Java API. This a very basic example and there are lots of additional options for creating charges. Please take a look at the [Stripe Java Documentation|https://stripe.com/docs/api?lang=java] for more information.
