@@ -11,4 +11,5 @@ class StripeGrailsPlugin {
     def license = "APACHE"
     def issueManagement = [ system: "GitHub", url: "https://github.com/bobbywarner/grails-stripe/issues" ]
     def scm = [ url: "https://github.com/bobbywarner/grails-stripe" ]
+    def developers = [ [ name: "Nicholas Vaidyanathan", email: "visionary.software.solutions@gmail.com" ] ]
 }
