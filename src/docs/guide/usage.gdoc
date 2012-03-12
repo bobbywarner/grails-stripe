@@ -1,16 +1,45 @@
 To use Stripe in a GSP, you will use the TagLib provided by the plugin. The TagLib will take care of processing the credit card details. You can also optionally have it completely generate the credit card form fields too.
 
-This is all that's required to use the plugin. The *formName* attribute needs to match the name attribute on your <g:form> tag.
+The first tag you will need is *script*. The *formName* attribute needs to match the name attribute on your <g:form> tag.
 {code}
 <stripe:script formName="payment-form"/> 
 {code}
 
-If you want the plugin to create the credit card fields (number, cvc, exp-month & exp-year), you can use this additional tag. The required *cssClass* attribute is what class you want the plugin to put for the div tag surrounding each credit card field. You don't have to use this tag though and can include these fields manually in your form if you'd prefer. If you do create your own credit card fields, make sure you don't have a *name* attribute on the *input* elements so that they never get submitted to the server. Take a look at the [Stripe form documentation|https://stripe.com/docs/tutorials/forms] for more information: 
+If you want the plugin to create the credit card fields (number, cvc, exp-month & exp-year), you can use the additional *creditCardInputs* tag. The required *cssClass* attribute is what class you want the plugin to put for the div tag surrounding each credit card field.
 {code}
 <stripe:creditCardInputs cssClass="form-row"/>
 {code}
 
-Once your credit card form is setup, the next step is to create a Grails controller to handle the form submission. The only two params you need to capture are *stripeToken* and *amount* if you use the credit card inputs tag. Here is an example from the [Grails Stripe Sample application|https://github.com/bobbywarner/stripesample]:
+Here is what a complete form might look like using both tags:
+{code}
+<!doctype html>
+<html>
+    <head>
+        <meta name="layout" content="main"/>
+        <r:require module="application"/>
+    </head>
+    <body>
+        <h3>Checkout</h3>
+        
+        <stripe:script formName="payment-form"/>
+        
+        <g:form action="charge" method="POST" name="payment-form">
+            <div class="form-row">
+                <label>Amount (USD)</label>
+                <input type="text" size="20" autocomplete="off" id="amount" name="amount"/>
+            </div>
+            
+            <stripe:creditCardInputs cssClass="form-row"/>     
+
+            <button type="submit" class="submit-button">Submit Payment</button>
+        </g:form>
+    </body>
+</html>
+{code}
+
+You don't have to use the *creditCardInputs* tag and can include these fields manually in your form if you'd prefer. If you do create your own credit card fields, make sure you don't have a *name* attribute on the *input* elements so that they never get submitted to the server and that you use the correct class name so that the Stripe JavaScript works. Take a look at the [Stripe form documentation|https://stripe.com/docs/tutorials/forms] for more information.
+
+Once your credit card form is setup, the next step is to create a Grails controller to handle the form submission. The only two params you need to capture are *stripeToken* and *amount* for the example above.
 {code}
 package stripesample
 
