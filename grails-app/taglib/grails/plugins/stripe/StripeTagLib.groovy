@@ -26,7 +26,6 @@ class StripeTagLib {
      * @attr formName REQUIRED the field formName
      */
     def script = { attrs, body ->
-        Stripe.apiKey = grailsApplication.config.grails.plugins.stripe.secretKey
         def publishableKey = grailsApplication.config.grails.plugins.stripe.publishableKey
         if(!publishableKey){
             throw new IllegalArgumentException("publishableKey must be provided! Please set it in your grails config")

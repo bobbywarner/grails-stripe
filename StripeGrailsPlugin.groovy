@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 class StripeGrailsPlugin {
-    def version = "2.0"
+    def version = "2.1"
     def grailsVersion = "1.3.7 > *"
     def dependsOn = ['resources':'1.2 > *']
 
@@ -28,4 +28,8 @@ class StripeGrailsPlugin {
         [ name: "Bobby Warner", email: "bobbywarner@gmail.com" ],
         [ name: "Nicholas Vaidyanathan", email: "visionary.software.solutions@gmail.com" ]
     ]
+
+    def doWithApplicationContext = {
+        com.stripe.Stripe.apiKey = application.config.grails.plugins.stripe.secretKey
+    }
 }
