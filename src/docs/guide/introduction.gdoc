@@ -1,6 +1,6 @@
 [Stripe|https://stripe.com] makes it easy to start accepting credit cards in a web application. This plugin provides easy integration of [Stripe|https://stripe.com/] into [Grails|http://grails.org] applications.
 
-This guide documents the configuration needed to setup the plugin and provides sample code on how to use it.
+This guide documents the configuration needed to setup the plugin and provides sample code on how to use it. Version 2.0+ of this plugin uses Stripe.js v2.
 
 h4. Release History
 * March 10, 2012
@@ -12,4 +12,4 @@ h4. Release History
 * January 5, 2013
 ** 1.3 release
 * June 7, 2013
-** 1.4 release
+** 2.0 release
