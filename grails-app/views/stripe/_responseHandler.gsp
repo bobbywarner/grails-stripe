@@ -1,18 +1,18 @@
 <r:script>
-  function stripeResponseHandler(status, response) {
+    var stripeResponseHandler = function(status, response) {
+        var $form = $("#${formName}");
+
         if (response.error) {
-            // re-enable the submit button
-            jQuery('.submit-button').removeAttr("disabled");
-            // show the errors on the form
-            jQuery(".payment-errors").html(response.error.message);
+            // Show the errors on the form
+            $form.find('.payment-errors').text(response.error.message);
+            $form.find('button').prop('disabled', false);
         } else {
-            var form$ = jQuery("#${formName}");
             // token contains id, last4, and card type
-            var token = response['id'];
-            // insert the token into the form so it gets submitted to the server
-            form$.append("<input type='hidden' name='stripeToken' value='" + token + "' />");
+            var token = response.id;
+            // Insert the token into the form so it gets submitted to the server
+            $form.append($('<input type="hidden" name="stripeToken" />').val(token));
             // and submit
-            form$.get(0).submit();
+            $form.get(0).submit();
         }
-    }
+    };    
 </r:script>

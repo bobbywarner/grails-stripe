@@ -31,7 +31,7 @@ Here is what a complete form might look like using both tags:
             
             <stripe:creditCardInputs cssClass="form-row"/>     
 
-            <button type="submit" class="submit-button">Submit Payment</button>
+            <button type="submit">Submit Payment</button>
         </g:form>
     </body>
 </html>
