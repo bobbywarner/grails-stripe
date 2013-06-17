@@ -1,7 +1,7 @@
 <r:script> 
-    jQuery(function($) {
-        $("#${formName}").submit(function(event) {
-            var $form = $(this);
+    jQuery(document).ready(function() {
+        jQuery("#${formName}").submit(function(event) {
+            var $form = jQuery(this);
 
             // Disable the submit button to prevent repeated clicks
             $form.find('button').prop('disabled', true);

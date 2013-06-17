@@ -1,6 +1,6 @@
 <r:script>
     var stripeResponseHandler = function(status, response) {
-        var $form = $("#${formName}");
+        var $form = jQuery("#${formName}");
 
         if (response.error) {
             // Show the errors on the form
