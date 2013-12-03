@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 class StripeGrailsPlugin {
-    def version = "2.2"
+    def version = "2.3"
     def grailsVersion = "1.3.7 > *"
     def loadAfter = ['resources', 'jquery']
 
