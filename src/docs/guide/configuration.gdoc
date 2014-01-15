@@ -3,7 +3,14 @@ You will need to set two configuration items in Config.groovy before using the p
 {table}
 *Property* | *Meaning*
 grails.plugins.stripe.secretKey | Your secret key from Stripe
-grails.plugins.stripe.publishableKey | Your publishable key from Stripe 
+grails.plugins.stripe.publishableKey | Your publishable key from Stripe
 {table}
 
 You will want to put these config values in the appropriate environment in Config.groovy.
+
+You can use the optional configuration items listed below
+
+{table}
+*Property* | *Meaning*
+grails.plugins.stripe.api.url | Your custom api URL. Useful for mocking out the api for a functional test environment, or providing custom responses from stripe for testing purposes. Your url will be appended with '/v1/<endpoint>' when calls are made.
+{table}
