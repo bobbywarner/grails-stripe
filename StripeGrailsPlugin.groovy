@@ -31,5 +31,10 @@ class StripeGrailsPlugin {
 
     def doWithApplicationContext = {
         com.stripe.Stripe.apiKey = application.config.grails.plugins.stripe.secretKey
+
+        if (application.config.grails.plugins.stripe.containsKey('api')) {
+            com.stripe.Stripe.overrideApiBase(application.config.grails.plugins.stripe.api.url)
+        }
+
     }
 }
