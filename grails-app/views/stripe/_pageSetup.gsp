@@ -1,4 +1,4 @@
-<r:script> 
+<asset:script>
     jQuery(document).ready(function() {
         jQuery("#${formName}").submit(function(event) {
             var $form = jQuery(this);
@@ -12,4 +12,4 @@
             return false;
         });
     });
-</r:script>
+</asset:script>

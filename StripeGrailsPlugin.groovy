@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 class StripeGrailsPlugin {
-    def version = "2.9"
-    def grailsVersion = "1.3.7 > *"
-    def loadAfter = ['resources', 'jquery']
+    def version = "2.10"
+    def grailsVersion = "2.4.0 > *"
 
     def title = "Stripe"
     def description = "Plugin for using Stripe to process credit card transactions."

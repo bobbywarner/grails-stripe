@@ -1,9 +1,9 @@
-<r:require module="stripe"/>
+<asset:javascript src="stripe-v2.js"/>
 
-<r:script disposition='head'>
+<asset:script>
     Stripe.setPublishableKey("${publishableKey}");
     
     if (window.location.protocol === 'file:') {
         alert("stripe.js does not work when included in pages served over file:// URLs.");
     }
-</r:script>
+</asset:script>
