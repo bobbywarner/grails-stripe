@@ -14,15 +14,11 @@ grails.project.dependency.resolution = {
     }
 
     dependencies {
-        compile 'com.stripe:stripe-java:1.32.1'
+        compile 'com.stripe:stripe-java:3.5.0'
     }
 
     plugins {
-
-        compile ":resources:1.2.8"
-
-        build ':release:3.0.1', ':rest-client-builder:2.0.3', {
-            export = false
-        }
+        compile ":asset-pipeline:2.5.7"
+        build(':release:3.1.2')
     }
 }

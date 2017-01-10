@@ -1,4 +1,4 @@
-<r:script>
+<asset:script>
     var stripeResponseHandler = function(status, response) {
         var $form = jQuery("#${formName}");
 
@@ -15,4 +15,4 @@
             $form.get(0).submit();
         }
     };    
-</r:script>
+</asset:script>
